@@ -7,8 +7,9 @@ public class HealthBurger extends Burger {
     private String name;
     private Bread bread;
     private Meat meat;
-    private final ArrayList<Toppings> toppingsList;
     private double price = 5.00;
+    private String[] toppings = {null, null, null, null};
+    private double each;
 
     public static final HealthBurger Health = new Health("Health Burger", Bread.grain, Meat.chicken);
     
@@ -20,14 +21,31 @@ public class HealthBurger extends Burger {
         this.bread = bread;
     }
 
-    public void addToppings(Toppings... added) {
-        if (Toppings.size() <= 4) {
-            for(Toppings t : added) {
-                Toppings.add(t);
-                System.out.println("Topping " + t + " was added.");
+    public void addToppings(String TopOne, String TopTwo) {
+        String[] toppingsArray = {"Lettuce", "Tomatoes", "Cheese", "Onions", "BBQ Sauce", "Bacon"};
+
+        for(String item: toppingsArray) {
+            if(TopOne.equals(item)) {
+                this.toppings[0] = item;
+                this.each += 0.75;
             }
-        } else {
-            System.out.println("Maximum number of toppings reached");
+            if(TopTwo.equals(item)) {
+                this.toppings[1] = item;
+                this.each += 0.75;
+            }
+            if(TopThree.equals(item)) {
+                this.toppings[2] = item;
+                this.each += 0.75;
+            }
+            if(TopFour.equals(item)) {
+                this.toppings[3] = item;
+                this.each += 0.75;
+            }
         }
+    }
+
+    public void getTotal() {
+        double Total = each + price;
+        System.out.printf("Your regular burger with %s, %s, %s, and %s will cost $%f dollars %n", this.toppings[0], this.toppings[1], this.toppings[2], this.toppings[3], Total);
     }
 }

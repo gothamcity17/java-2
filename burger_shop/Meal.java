@@ -1,6 +1,6 @@
 package burger_shop;
 
-import java.util.*;
+import javax.print.attribute.standard.Sides;
 
 public class Meal {
 
@@ -9,8 +9,6 @@ public class Meal {
     private Side side;
     private Drink drink;
     private double price;
-
-    private ArrayList<Side> sideList;
 
     public static final Meal Regular = new Meal("Regular Meal", Burger.Regular, Side.french, Drink.coke, 6.00);
     public static final Meal Deluxe = new Meal("Deluxe Meal", Burger.Deluxe, Side.rings, Drink.tea, 8.00);
@@ -27,9 +25,9 @@ public class Meal {
     public void printMeal() {
         System.out.println("Your " + name + "includes a " + burger + " with " + side + " and a " + drink + ".");
 
-        if (sideNum > 3) {
+        if(Side > 3) {
             System.out.println("You can only have three sides.");
-        }
+        } else System.out.println("Your order is now complete.");
     }
 
     public String getName() {

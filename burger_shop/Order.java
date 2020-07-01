@@ -1,16 +1,14 @@
 package burger_shop;
 
-import java.util.*;
-
 public class Order {
 
+    private Meal meal;
     private Burger burger;
     private String bread;
     private String meat;
-    private Meal meal;
     private Side side;
     private Drink drink;
-    private final ArrayList<Toppings> toppingsList;
+    private double price;
 
     public Order(Burger burger, String bread, String meat) {
         this.burger = burger;
@@ -31,13 +29,14 @@ public class Order {
     }
 
     public void addToppings(Toppings... added) {
-        for (Toppings t : added) {
-            Toppings.add(t);
-            System.out.println("Topping " + t + " was added.");
+        String[] toppingsArray = {"Lettuce", "Tomatoes", "Cheese", "Onions", "BBQ Sauce", "Bacon"};
+        for(String item : toppingsArray) {
+            Toppings.add(item);
+            System.out.println("Topping " + item + " was added.");
         }
     }
 
-    public void purchaseOrder() {
+    public void totalOrder() {
         System.out.println("Thank you!");
     }
 }
